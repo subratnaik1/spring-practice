@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Static factory method for LocalDate -->
+    <bean id="dt" class="java.time.LocalDate" factory-method="now"/>
+
+    <!-- Injecting LocalDate into DateService -->
+    <bean id="ds" class="com.subrat.sbeans.DateService">
+        <constructor-arg ref="dt"/>
+    </bean>
+
+</beans>
