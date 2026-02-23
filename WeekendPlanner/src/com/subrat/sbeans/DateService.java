@@ -9,9 +9,11 @@ public class DateService {
 //	public void setLocalDate(LocalDate localDate) {
 //		this.localDate = localDate;
 //	}
+	public DateService(LocalDate localDate) {
+		super();
+		this.localDate = localDate;
+	}
 	
-	
-
 	public String  getWeekDays() {
 		int value = localDate.getDayOfWeek().getValue();
 		if(value==6 || value==7) {
@@ -22,9 +24,5 @@ public class DateService {
 		}		
 	}
 
-public DateService(LocalDate localDate) {
-	super();
-	this.localDate = localDate;
-}
 
 }
