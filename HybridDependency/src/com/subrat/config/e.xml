@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Engine class -->
+    <bean id="engine" class="com.subrat.sbeans.Engine">
+        <constructor-arg value="petrol"/>
+        <constructor-arg value="50000"/>
+    </bean>
+
+    <!-- Tyre class -->
+    <bean id="tyre" class="com.subrat.sbeans.Tyre">
+        <property name="brand" value="mrf"/>
+        <property name="size" value="20"/>
+    </bean>
+
+    <!-- Vehicle class -->
+    <bean id="vehicle" class="com.subrat.sbeans.Vehicle">
+        <constructor-arg ref="engine"/>
+        <property name="vehicleName" value="fortuner"/>
+        <property name="tyre" ref="tyre"/>   <!-- if Vehicle has Tyre dependency -->
+    </bean>
+
+    <!-- ServiceCenter class -->
+    <bean id="servicecenter" class="com.subrat.sbeans.ServiceCenter">
+        <property name="serviceType" value="full engine checkup"/>
+    </bean>
+
+    <!-- Enable annotation support -->
+    <context:annotation-config/>
+
+    <!-- Component scan -->
+    <context:component-scan base-package="com.subrat.sbeans"/>
+
+</beans>

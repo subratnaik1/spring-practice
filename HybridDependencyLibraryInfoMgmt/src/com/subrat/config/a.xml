@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Author class -->
+    <bean id="author" class="com.subrat.sbeans.Author">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Martin Fowler"/>
+    </bean>
+
+    <!-- book class -->
+    <bean id="book1" class="com.subrat.sbeans.Book">
+       <constructor-arg value="2"/>
+       <constructor-arg value="Spring Framework Essentials"/>      
+    </bean>
+    <bean id="book2" class="com.subrat.sbeans.Book">
+       <constructor-arg value="3"/>
+       <constructor-arg value="Clean Code"/>      
+    </bean>
+
+    <!-- Library class -->
+    <bean id="Library" class="com.subrat.sbeans.Library">
+        <constructor-arg value="City Central Library"/>
+        <constructor-arg>
+        <list>
+        <ref bean="book1"/>
+        <ref bean="book2"/>
+        </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Librarian class -->
+    <bean id="Librarian" class="com.subrat.sbeans.Librarian">
+        <property name="employeeName" value="Mr. John"/>      
+    </bean>
+
+    <!-- Enable annotation support -->
+    <context:annotation-config/>
+
+    <!-- Component scan -->
+    <context:component-scan base-package="com.subrat.sbeans"/>
+
+</beans>
