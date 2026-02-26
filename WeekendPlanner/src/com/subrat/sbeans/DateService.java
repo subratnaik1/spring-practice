@@ -6,9 +6,6 @@ public class DateService {
 	
 	private LocalDate localDate;
 		
-//	public void setLocalDate(LocalDate localDate) {
-//		this.localDate = localDate;
-//	}
 	public DateService(LocalDate localDate) {
 		super();
 		this.localDate = localDate;
