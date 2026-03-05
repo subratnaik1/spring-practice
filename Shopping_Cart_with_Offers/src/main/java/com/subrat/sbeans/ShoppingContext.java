@@ -9,7 +9,5 @@ public class ShoppingContext {
 	public ShoppingContext(ShoppingService shoppingService) {
 		super();
 		this.shoppingService = shoppingService;
-	}
-
-	
+	}	
 }

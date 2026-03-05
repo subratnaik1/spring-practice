@@ -5,6 +5,7 @@ import java.util.Scanner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.subrat.config.AppConfig;
+import com.subrat.sbeans.ShoppingContext;
 import com.subrat.sbeans.ShoppingService;
 
 public class App {
@@ -13,7 +14,7 @@ public class App {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("enter flipcart or amazon");
 		String b = sc.nextLine();
-		while (true) {
+		while (true) {			
 			ShoppingService sct = ctx.getBean(b, ShoppingService.class);
 			System.out.println("1=add item to cart");
 			System.out.println("2=view cart");
