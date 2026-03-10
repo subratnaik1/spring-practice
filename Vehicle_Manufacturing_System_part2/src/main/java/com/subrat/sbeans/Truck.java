@@ -3,6 +3,8 @@ package com.subrat.sbeans;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import lombok.Data;
+
 public class Truck implements Vehicle {
 	
 	private Engine engine_type;
