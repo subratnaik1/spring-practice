@@ -15,7 +15,8 @@ import org.springframework.stereotype.Repository;
 import com.subrat.sbeans.Employee;
 @Repository
 public class EmployeeDAOimpl implements IEmployeeDAO {
-	public static final String GET_EMPS_QUERY = "SELECT ENO,ENAME,JOB,SALARY,DEPTNO FROM EMP WHERE JOB IN(?,?,?) ORDER BY JOB";
+	public static final String GET_EMPS_QUERY = "SELECT * FROM EMP WHERE JOB IN(?,?,'ceo') ORDER BY JOB";
+	public static String sql = "select * from emp";
 	@Autowired
 	private DataSource ds;
 
@@ -27,7 +28,7 @@ public class EmployeeDAOimpl implements IEmployeeDAO {
         PreparedStatement pstmt= con.prepareStatement(GET_EMPS_QUERY);
         pstmt.setString(1, desg1);
         pstmt.setString(2, desg2);
-        pstmt.setString(3, desg3);
+      //  pstmt.setString(3, desg3);
     
         try(ResultSet rs=pstmt.executeQuery()){
         	while(rs.next()) {
@@ -39,6 +40,8 @@ public class EmployeeDAOimpl implements IEmployeeDAO {
         		emp.setDeptno(rs.getInt(5));
                  list.add(emp);        	
                  }
+        	
+        	IO.println(list);
         
         }
 		} 
