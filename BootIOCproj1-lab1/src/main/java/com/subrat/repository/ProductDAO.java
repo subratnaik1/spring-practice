@@ -91,7 +91,7 @@ public class ProductDAO implements IproductDAO {
       catch(Exception e) {
     	  throw e;  	  
       }
-		return 0;
+		return rowCount;
 	}
 
 }
